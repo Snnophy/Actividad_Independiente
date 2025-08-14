@@ -1,0 +1,262 @@
+/* ================================
+   RESET BÁSICO Y ESTILOS GENERALES
+   ================================ */
+
+/* Reset básico para todos los elementos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos del cuerpo de la página */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #c31432 0%, #240b36 100%);
+    padding: 20px;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Título principal */
+h1 {
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+/* ================================
+   GRID DE TARJETAS DE PRODUCTOS
+   ================================ */
+
+/* Contenedor del grid de productos */
+.products-grid {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* ================================
+   ESTILOS BASE DE LAS TARJETAS
+   ================================ */
+
+/* Tarjeta principal del producto */
+.product-card {
+    background: rgb(215, 0, 0);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* ================================
+   IMAGEN DEL PRODUCTO
+   ================================ */
+
+/* Contenedor de la imagen */
+.product-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Imagen del producto */
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* ================================
+   CONTENIDO DE LA TARJETA
+   ================================ */
+
+/* Contenedor del contenido */
+.product-content {
+    padding: 20px;
+}
+
+/* Título del producto */
+.product-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Descripción del producto */
+.product-description {
+    color: #ffffff;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+/* Precio del producto */
+.product-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+/* ================================
+   BOTÓN AÑADIR AL CARRITO
+   ================================ */
+
+/* Estilos del botón */
+.add-to-cart {
+    width: 100%;
+    padding: 12px 24px;
+    background: linear-gradient(45deg, #092fdc, #764ba2);
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ================================
+   EFECTOS HOVER Y ANIMACIONES
+   ================================ */
+
+/* Efecto hover en la tarjeta completa */
+.product-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+
+/* Animación de zoom en la imagen al hacer hover */
+.product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+/* Efecto hover en el botón */
+.add-to-cart:hover {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #f10202, #6b46c1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* ================================
+   MEDIA QUERIES PARA RESPONSIVIDAD
+   ================================ */
+
+/* DESKTOP - Pantallas grandes (1024px en adelante) */
+@media (min-width: 1024px) {
+    /* Fondo azul para desktop */
+    .product-card {
+        background: #3182ce;
+    }
+    
+    /* Texto blanco para contraste en fondo azul */
+    .product-title,
+    .product-description,
+    .product-price {
+        color: white;
+    }
+    
+    /* Color más claro para la descripción */
+    .product-description {
+        color: #e2e8f0;
+    }
+}
+
+/* TABLET - Pantallas medianas (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    /* Fondo verde para tablet */
+    .product-card {
+        background: #38a169;
+    }
+    
+    /* Texto blanco para contraste en fondo verde */
+    .product-title,
+    .product-description,
+    .product-price {
+        color: white;
+    }
+    
+    /* Color más claro para la descripción */
+    .product-description {
+        color: #f0fff4;
+    }
+    
+    /* Dos columnas en tablet */
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* MÓVIL - Pantallas pequeñas (hasta 767px) */
+@media (max-width: 767px) {
+    /* Fondo amarillo para móvil */
+    .product-card {
+        background: #d69e2e;
+    }
+    
+    /* Texto oscuro para contraste en fondo amarillo */
+    .product-title,
+    .product-description,
+    .product-price {
+        color: #1a202c;
+    }
+    
+    /* Una sola columna en móvil */
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    /* Altura de imagen reducida en móvil */
+    .product-image {
+        height: 200px;
+    }
+    
+    /* Título más pequeño en móvil */
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+/* ================================
+   AJUSTES PARA PANTALLAS MUY PEQUEÑAS
+   ================================ */
+
+/* Pantallas muy pequeñas (hasta 480px) */
+@media (max-width: 480px) {
+    /* Reducir padding del contenedor */
+    .container {
+        padding: 0 10px;
+    }
+    
+    /* Reducir padding del body */
+    body {
+        padding: 10px;
+    }
+    
+    /* Reducir padding del contenido de la tarjeta */
+    .product-content {
+        padding: 15px;
+    }
+    
+    /* Título aún más pequeño */
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+}
